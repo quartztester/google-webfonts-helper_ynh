@@ -1,0 +1,51 @@
+--- a/client/app/fonts/fontsItem.html
++++ b/client/app/fonts/fontsItem.html
+@@ -172,7 +172,7 @@
+       <h4>4. Download files:</h4>
+       <p>Your generated archive for <strong>{{fontItem.family}}</strong> with charsets <strong><code>[{{downloadSubSetID}}]</code></strong>        and styles <strong><code>[{{variantDownloadQueryString}}]</code></strong> includes the formats <strong><code>[{{fontFormats}}]</code></strong>.</p>
+ 
+-      <a href="/api/fonts/{{fontItem.id}}?download=zip&amp;subsets={{downloadSubSetID}}&amp;variants={{variantDownloadQueryString}}&formats={{fontFormats}}"
++      <a href="api/fonts/{{fontItem.id}}?download=zip&amp;subsets={{downloadSubSetID}}&amp;variants={{variantDownloadQueryString}}&formats={{fontFormats}}"
+         target="_blank" role="button" class="btn btn-primary download-button"><i class="fa fa-download fa-lg"></i><br/>{{fontItem.id}}-{{fontItem.version}}-{{fontItem.storeID}}.zip</a>
+       <p><small>Fonts are copyright of their respective authors.<br><b>See <a target="_blank" href="https://fonts.google.com/attribution">Google Fonts Open Source Font Attribution</a> to find out the specific license that this font uses.</b></small></p>
+ 
+--- a/client/app/fonts/fonts.html
++++ b/client/app/fonts/fonts.html
+@@ -48,7 +48,7 @@
+ 
+       <div class="col-lg-10 col-md-9 col-sm-9 col-xs-8">
+         <!-- App name -->
+-        <h4 class="page-header"><a href="/" ng-click="selectedItemID=''">google-webfonts-helper</a><br /><small>Get eot,
++        <h4 class="page-header"><a href="./" ng-click="selectedItemID=''">google-webfonts-helper</a><br /><small>Get eot,
+             ttf, svg, woff and woff2 + CSS</small></h4>
+ 
+         <div class="nav-push-right">
+@@ -88,7 +88,7 @@
+       <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 scrollerLeft column"
+         cg-busy="{promise: fontsPromise, message: 'Listing fonts...'}">
+         <div class="list-group">
+-          <a href="/fonts/{{font.id}}?subsets={{font.defSubset}}"
++          <a href="fonts/{{font.id}}?subsets={{font.defSubset}}"
+             class="list-group-item {{selectedItemID === font.id ? 'active' : ''}}"
+             ng-repeat="font in fonts | filter:query | orderBy:predicate.filter:reverse">
+             <h5 class="list-group-item-heading">{{font.family}} <small>{{predicate.pre}}{{predicate.bindArg ?
+--- a/client/app/fonts/fonts.controller.js
++++ b/client/app/fonts/fonts.controller.js
+@@ -32,7 +32,7 @@
+ 
+     $scope.reverse = false;
+ 
+-    $scope.fontsPromise = $http.get('/api/fonts')
++    $scope.fontsPromise = $http.get('api/fonts')
+       .success(function(fonts) {
+         $scope.fonts = fonts;
+         $scope.busy = false;
+@@ -89,7 +89,7 @@
+   $scope.downloadSubSetID = '';
+   $scope.subSetsSelected = 0;
+ 
+-  $scope.loadingPromise = $http.get('/api/fonts/' + $stateParams.id + '?subsets=' + subSetString)
++  $scope.loadingPromise = $http.get('api/fonts/' + $stateParams.id + '?subsets=' + subSetString)
+     .success(function(fontItem) {
+       $scope.fontItem = fontItem;
+ 
