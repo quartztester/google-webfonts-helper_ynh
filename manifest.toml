@@ -71,5 +71,9 @@ ram.runtime = "100M"
 
     [resources.ports]
 
+    [resources.apt]
+    # optipng/gifsicle image-optimizer builds in the grunt toolchain compile from source
+    packages = ["zlib1g-dev"]
+
     [resources.nodejs]
     version = "24"
