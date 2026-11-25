@@ -9,7 +9,7 @@ services = ["__APP__"]
 
 	[main.api]
 
-		[main.api.key]
+		[main.api.api_key]
 		ask.en = "Google Fonts API key"
 		ask.fr = "Clé d'API Google Fonts"
 		help.en = "Free 'Web Fonts Developer API' key from https://console.cloud.google.com/apis/library/webfonts.googleapis.com Empty keeps the app in demo mode (3 example fonts only)."
