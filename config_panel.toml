@@ -7,11 +7,13 @@ name.en = "Google Fonts API"
 name.fr = "API Google Fonts"
 services = ["__APP__"]
 
-	[main.api_key]
-	ask.en = "Google Fonts API key"
-	ask.fr = "Clé d'API Google Fonts"
-	help.en = "Free 'Web Fonts Developer API' key from https://console.cloud.google.com/apis/library/webfonts.googleapis.com Empty keeps the app in demo mode (3 example fonts only)."
-	help.fr = "Clé gratuite « Web Fonts Developer API » sur https://console.cloud.google.com/apis/library/webfonts.googleapis.com Laisser vide garde l'application en mode démo (3 polices d'exemple seulement)."
-	type = "string"
-	optional = true
-	bind = "GOOGLE_FONTS_API_KEY:/var/www/__APP__/.env"
+	[main.api]
+
+		[main.api.key]
+		ask.en = "Google Fonts API key"
+		ask.fr = "Clé d'API Google Fonts"
+		help.en = "Free 'Web Fonts Developer API' key from https://console.cloud.google.com/apis/library/webfonts.googleapis.com Empty keeps the app in demo mode (3 example fonts only)."
+		help.fr = "Clé gratuite « Web Fonts Developer API » sur https://console.cloud.google.com/apis/library/webfonts.googleapis.com Laisser vide garde l'application en mode démo (3 polices d'exemple seulement)."
+		type = "string"
+		optional = true
+		bind = "GOOGLE_FONTS_API_KEY:/var/www/__APP__/.env"

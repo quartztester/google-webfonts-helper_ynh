@@ -1,1 +1,1 @@
-This is a dummy disclaimer to display prior to any upgrade
+Nothing specific to know before upgrading: the app is rebuilt from source and restarted.
